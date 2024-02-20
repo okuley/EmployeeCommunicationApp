@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "640523753672",
+    "project_id": "employee-communication-a-56cf5",
+    "storage_bucket": "employee-communication-a-56cf5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640523753672:android:e8227c549c6e20d614adfd",
+        "android_client_info": {
+          "package_name": "com.egyening.employeecommunicationapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK88uMMNK-dhMAImNFT2LgoMDOAGjpqHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

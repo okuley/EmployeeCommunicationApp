@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/bg_imag"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Employee Resourses"
+     android:textColor="@color/white"
+     android:textStyle="bold"
+     android:textSize="30sp"
+     android:background="@color/secondary"
+     android:padding="20sp"
+     android:layout_marginTop="0sp"
+     android:id="@+id/employee_resource"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="0sp"
+            android:layout_toRightOf="@id/employee_resource"
+            android:background="@color/secondary"
+            android:padding="28sp"
+            android:src="@drawable/menu_icon" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About Our Company"
+        android:background="@color/secondary"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:padding="15sp"
+        android:textSize="30sp"
+        android:layout_marginTop="30sp"
+
+        >
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Staff Directory"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:padding="15sp"
+        android:textSize="30sp"
+        android:layout_marginTop="30sp"
+        android:background="@color/secondary"
+        android:textColor="@color/white">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Training Resources"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:padding="15sp"
+        android:textSize="30sp"
+        android:layout_marginTop="30sp"
+        android:background="@color/secondary"
+        android:textColor="@color/white">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="News And Updates"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:padding="15sp"
+        android:textSize="30sp"
+        android:layout_marginTop="30sp"
+        android:background="@color/secondary"
+        android:textColor="@color/white">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chat"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:padding="15sp"
+        android:textSize="30sp"
+        android:layout_marginTop="30sp"
+        android:background="@color/secondary"
+        android:textColor="@color/white">
+
+    </TextView>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:layout_marginTop="105sp"
+     android:background="@color/secondary"
+     android:paddingBottom="17sp"
+     >
+
+
+     <ImageView
+         android:layout_width="50sp"
+         android:layout_height="wrap_content"
+         android:src="@drawable/chat_icon"
+         android:layout_marginRight="200sp"
+         android:layout_marginLeft="50sp"
+
+         />
+
+     <ImageView
+         android:layout_width="50sp"
+         android:layout_height="wrap_content"
+         android:src="@drawable/people_icon"
+
+         />
+
+
+
+ </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupSignin"
+    android:orientation="vertical"
+    android:background="@drawable/eco_bg"
+    >
+
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3AB3EA"
+        android:gravity="center"
+        android:padding="10sp"
+        android:text="Employee Comm App"
+        android:textColor="#FEFEFE"
+        android:textStyle="bold"
+
+         />
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:gravity="center"
+        android:text="Register"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/person_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register"
+        android:layout_gravity="center"
+        android:layout_marginTop="40sp"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        app:srcCompat="@drawable/person_icon" />
+
+    <EditText
+        android:id="@+id/firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/person_icon"
+        android:ems="10"
+        android:hint="Firstname"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="30sp"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:inputType="text"
+        android:layout_gravity="center"
+        android:background="@color/secondary"
+        />
+
+    <EditText
+        android:id="@+id/lastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/person_icon"
+        android:ems="10"
+        android:hint="Lastname"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="40sp"
+        android:inputType="text"
+        android:layout_gravity="center"
+        android:background="@color/secondary"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        />
+
+
+
+    <EditText
+        android:id="@+id/signup_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/person_icon"
+        android:ems="10"
+        android:hint="Email"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="40sp"
+        android:inputType="textEmailAddress"
+        android:layout_gravity="center"
+        android:background="@color/secondary"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        />
+
+
+
+    <EditText
+        android:id="@+id/signup_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textColorHint="@color/white"
+        android:layout_below="@id/signup_email"
+        android:layout_gravity="center"
+        android:layout_marginTop="40sp"
+        android:background="@color/secondary"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:text="Signup"
+        android:layout_below="@id/signup_password"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp"
+        android:textSize="30sp"
+        android:backgroundTint="@color/secondary"
+        />
+
+</LinearLayout>
