@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/home_icon"
+        android:title="Home"/>
+    <item
         android:id="@+id/chat1"
         android:enabled="true"
         android:icon="@drawable/chat_icon"
@@ -9,10 +14,15 @@
         android:id="@+id/employee_directory1"
         android:enabled="true"
         android:icon="@drawable/people_icon"
-        android:title="Employee Directory"/>
+        android:title="Staff Directory"/>
     <item
         android:id="@+id/news"
         android:enabled="true"
-        android:icon="@drawable/people_icon"
+        android:icon="@drawable/news_updates"
         android:title="News And Updates"/>
+    <item
+        android:id="@+id/training"
+        android:enabled="true"
+        android:icon="@drawable/training_icon"
+        android:title="Training Resources"/>
 </menu>
