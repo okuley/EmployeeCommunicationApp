@@ -6,12 +6,12 @@
         android:icon="@drawable/home_icon"
         android:title="Home"/>
     <item
-        android:id="@+id/chat1"
+        android:id="@+id/chat"
         android:enabled="true"
         android:icon="@drawable/chat_icon"
         android:title="Chat"/>
     <item
-        android:id="@+id/employee_directory1"
+        android:id="@+id/staff_directory"
         android:enabled="true"
         android:icon="@drawable/people_icon"
         android:title="Staff Directory"/>

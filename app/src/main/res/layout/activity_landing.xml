@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Landing"
-    android:background="@drawable/eco_bg"
+    android:background="@drawable/bg_imag"
     >
 <ProgressBar
     android:layout_width="match_parent"

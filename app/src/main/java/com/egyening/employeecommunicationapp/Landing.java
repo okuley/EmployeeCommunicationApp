@@ -28,7 +28,7 @@ public class Landing extends AppCompatActivity {
                 getUserDetails();
                 finish();
             }
-        },5000);
+        },3000);
     }
 
     public void getUserDetails(){

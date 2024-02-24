@@ -3,6 +3,7 @@ package com.egyening.employeecommunicationapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,11 +18,19 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Signin extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    String emailtxt;
+
+    String passwordtxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         mAuth = FirebaseAuth.getInstance();
+
+
+
+
+
     }
 
     @Override
@@ -30,7 +39,8 @@ public class Signin extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            //User is signed in use an intent to move to another activity
+            Intent intent =new Intent(Signin.this, MainActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -42,12 +52,14 @@ public class Signin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(Signin.this, "Authentication success. Use an intent to move to a new activity",
-                                    Toast.LENGTH_SHORT).show();
+                            /*Toast.makeText(Signin.this, "Authentication success. Use an intent to move to a new activity",
+                                    Toast.LENGTH_SHORT).show();*/
                             //user has been signed in, use an intent to move to the next activity
+                            Intent intent =new Intent(Signin.this, MainActivity.class);
+                            startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w("MainActivity", "signInWithEmail:failure",
+                            Log.w("Signin", "signInWithEmail:failure",
                                     task.getException());
                             Toast.makeText(Signin.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -59,9 +71,13 @@ public class Signin extends AppCompatActivity {
                 });
     }
 
+    public void getUserDetails(){
+
+    }
+
     public void signinButtonClicked( View view){
-        EditText email = findViewById(R.id.signup_email);
-        EditText password = findViewById(R.id.signup_password);
+        EditText email = findViewById(R.id.signin_email);
+        EditText password = findViewById(R.id.signin_password);
 
         String sEmail = email.getText().toString();
         String sPassword = password.getText().toString();
