@@ -18,6 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class SignupSignin extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -31,6 +32,7 @@ public class SignupSignin extends AppCompatActivity {
 
     EditText passwordtxt;
     Button signupbtn;
+    //String staffId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +59,13 @@ public class SignupSignin extends AppCompatActivity {
         }
     }*/
 
-    public void signup(String firstName,String lastName,String email,String password){
+    public void signup(String firstName,String lastName,String email,String password,String staffId){
         Map<String, Object> user = new HashMap<>();
         user.put("firstName", firstName);
         user.put("lastName", lastName);
         user.put("email", email);
         user.put("password", password);
+        user.put("staffId", staffId);
         // Add a new document with a generated ID
         db.collection("users")
                 .add(user)
@@ -93,8 +96,9 @@ public class SignupSignin extends AppCompatActivity {
         String lastName=lastnametxt.getText().toString();
         String email=emailtxt.getText().toString();
         String password=passwordtxt.getText().toString();
+        String staffId=UUID.randomUUID().toString().replace("-", "");
 
-        signup(firstName, lastName,email,password);
+        signup(firstName, lastName,email,password,staffId);
     }
 
 

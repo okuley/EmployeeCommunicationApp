@@ -1,6 +1,8 @@
 package com.egyening.employeecommunicationapp.adapter;
 
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.egyening.employeecommunicationapp.ChatActivity;
 import com.egyening.employeecommunicationapp.R;
 import com.egyening.employeecommunicationapp.Staff;
+import com.egyening.employeecommunicationapp.utils.AndroidUtils;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
@@ -28,6 +32,14 @@ public class SearchUserAdapter  extends FirestoreRecyclerAdapter<Staff, SearchUs
         holder.emailtxt.setText(model.getEmail());
         holder.firstnametxt.setText(model.getFirstName());
         holder.lastnametxt.setText(model.getLastName());
+
+
+        holder.itemView.setOnClickListener(v->{
+            Intent intent =new Intent(context, ChatActivity.class);
+            AndroidUtils.passUserAsIntent(intent,model);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+        });
 
     }
 

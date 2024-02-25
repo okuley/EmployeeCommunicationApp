@@ -2,7 +2,7 @@ package com.egyening.employeecommunicationapp;
 
 public class Staff {
 
-
+   private String staffId;
     private String firstName;
     private String lastName;
 
@@ -16,11 +16,12 @@ public class Staff {
     public Staff() {
     }
 
-    public Staff(String firstName, String lastName, String email, String password) {
+    public Staff(String firstName, String lastName, String email, String password, String staffId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.staffId=staffId;
 
     }
 
@@ -56,5 +57,11 @@ public class Staff {
         this.password = password;
     }
 
+    public String getStaffId() {
+        return staffId;
+    }
 
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
+    }
 }
