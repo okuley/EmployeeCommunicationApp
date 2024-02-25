@@ -59,8 +59,8 @@ public class SignupSignin extends AppCompatActivity {
 
     public void signup(String firstName,String lastName,String email,String password){
         Map<String, Object> user = new HashMap<>();
-        user.put("Firstname", firstName);
-        user.put("Lastname", lastName);
+        user.put("firstName", firstName);
+        user.put("lastName", lastName);
         user.put("email", email);
         user.put("password", password);
         // Add a new document with a generated ID

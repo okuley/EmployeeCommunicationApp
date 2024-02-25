@@ -25,9 +25,10 @@ public class SearchUserAdapter  extends FirestoreRecyclerAdapter<Staff, SearchUs
 
     @Override
     protected void onBindViewHolder(@NonNull UserViewHolder holder, int position, @NonNull Staff model) {
-    holder.firstnametxt.setText(model.getFirstName());
-    holder.lasnametxt.setText(model.getLastName());
-    holder.emailtxt.setText(model.getEmail());
+        holder.emailtxt.setText(model.getEmail());
+        holder.firstnametxt.setText(model.getFirstName());
+        holder.lastnametxt.setText(model.getLastName());
+
     }
 
     @NonNull
@@ -39,13 +40,13 @@ public class SearchUserAdapter  extends FirestoreRecyclerAdapter<Staff, SearchUs
 
     class UserViewHolder extends RecyclerView.ViewHolder{
             TextView firstnametxt;
-            TextView lasnametxt;
+            TextView lastnametxt;
             TextView emailtxt;
             ImageView profilePic;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             firstnametxt= itemView.findViewById(R.id.firstname_txt);
-            lasnametxt= itemView.findViewById(R.id.lastname_txt);
+            lastnametxt= itemView.findViewById(R.id.lastname_txt);
             emailtxt=itemView.findViewById(R.id.email_txt);
             profilePic=itemView.findViewById(R.id.profile_pic_img);
 
