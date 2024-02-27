@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.chat);
+        //bottomNavigationView.setSelectedItemId(R.id.chat);
 
     }
 }
