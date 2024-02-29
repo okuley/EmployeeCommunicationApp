@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.egyening.employeecommunicationapp.utils.AndroidUtils;
 import com.egyening.employeecommunicationapp.utils.firebaseUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -55,6 +56,7 @@ public class NewsAndUpdatesActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if(task.isSuccessful()){
                             updateMessageInput.setText("");
+                            AndroidUtils.displayToast(NewsAndUpdatesActivity.this,"Update sent");
                         }
                     }
                 });
