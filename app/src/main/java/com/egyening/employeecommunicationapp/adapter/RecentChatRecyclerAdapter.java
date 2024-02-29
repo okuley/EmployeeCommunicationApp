@@ -1,6 +1,9 @@
 package com.egyening.employeecommunicationapp.adapter;
 
 
+import static android.content.Intent.getIntent;
+import static android.content.Intent.getIntentOld;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -26,6 +29,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 public class RecentChatRecyclerAdapter  extends FirestoreRecyclerAdapter<ChatRoom, RecentChatRecyclerAdapter.ChatRoomViewHolder> {
     Context context;
+    Staff otherUser;
 
     public RecentChatRecyclerAdapter(@NonNull FirestoreRecyclerOptions<ChatRoom> options, Context context) {
         super(options);
@@ -34,13 +38,35 @@ public class RecentChatRecyclerAdapter  extends FirestoreRecyclerAdapter<ChatRoo
 
     @Override
     protected void onBindViewHolder(@NonNull ChatRoomViewHolder holder, int position, @NonNull ChatRoom model) {
-        //firebaseUtils.getSomeUserFromChatRoom(model.getStaffIds())
-                //.get().addOnCompleteListener(task -> {
-              //  Staff someUser=task.getResult().toObject(Staff.class);
-                //holder.firstname_txt.setText(someUser.getFirstName());
-                holder.lastmessage_txt.setText(model.getLastMessage());
-                holder.lastmessagetime_txt.setText(firebaseUtils.timestampToString(model.getLastMessageTimestamp()));
-                //});
+        firebaseUtils.getSomeUserFromChatRoom(model.getStaffIds())
+                .get().addOnCompleteListener(task -> {
+                   if(task.isSuccessful()){
+                       otherUser =task.getResult().toObject(Staff.class);
+
+                       if (otherUser != null) {
+                           holder.firstnametxt.setText(otherUser.getFirstName());
+                       }
+
+                       holder.lastmessage_txt.setText(model.getLastMessage());
+                       holder.lastmessagetime_txt.setText(firebaseUtils.timestampToString(model.getLastMessageTimestamp()));
+
+                       holder.itemView.setOnClickListener(v->{
+                           Intent intent =new Intent(context, ChatActivity.class);
+                           if (otherUser != null) {
+                               AndroidUtils.passUserAsIntent(intent, otherUser);
+                               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                               context.startActivity(intent);
+                           }
+
+                       });
+                   }
+
+
+
+
+                });
+
+
 
     }
 
@@ -53,7 +79,7 @@ public class RecentChatRecyclerAdapter  extends FirestoreRecyclerAdapter<ChatRoo
 
     class ChatRoomViewHolder extends RecyclerView.ViewHolder{
 
-        TextView firstname_txt;
+        TextView firstnametxt;
 
         TextView lastmessage_txt;
 
@@ -61,7 +87,7 @@ public class RecentChatRecyclerAdapter  extends FirestoreRecyclerAdapter<ChatRoo
         ImageView profilePic;
         public ChatRoomViewHolder(@NonNull View itemView) {
             super(itemView);
-            firstname_txt= itemView.findViewById(R.id.firstname_txt);
+            firstnametxt= itemView.findViewById(R.id.firstnametxt);
             lastmessage_txt= itemView.findViewById(R.id.last_message_txt);
             lastmessagetime_txt=itemView.findViewById(R.id.last_message_time_txt);
             profilePic=itemView.findViewById(R.id.profile_pic_img);

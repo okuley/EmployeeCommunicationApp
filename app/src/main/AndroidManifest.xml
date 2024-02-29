@@ -13,6 +13,9 @@
         android:theme="@style/Theme.EmployeeCommunicationApp"
         tools:targetApi="31">
         <activity
+            android:name=".NewsAndUpdatesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity

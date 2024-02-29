@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About Our Company"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@color/secondary"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        android:padding="7dp"
+        android:id="@+id/aboutcompanyheader"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aboutcompanyheader"
+        android:layout_margin="5dp"
+        android:text="@string/About_company"
+        android:padding="10dp"
+        android:textSize="15sp"/>
+
+
+
+</RelativeLayout>

@@ -44,7 +44,7 @@ SearchUserAdapter adapter;
         searchBtn.setOnClickListener(v->{
             String searchInputData=searchInput.getText().toString();
             if(searchInputData.isEmpty()){
-                searchInput.setError("Please enter lastname");
+                searchInput.setError("Please enter email");
                 return;
             }else {
                 setSearchRecyclerView(searchInputData);

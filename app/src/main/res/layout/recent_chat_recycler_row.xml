@@ -28,7 +28,7 @@
                 tools:text="Firstname"
                 android:textStyle="italic"
                 android:textSize="17sp"
-                android:id="@+id/firstname_txt"
+                android:id="@+id/firstnametxt"
                 />
             <TextView
                 android:layout_width="wrap_content"

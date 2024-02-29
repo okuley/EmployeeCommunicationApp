@@ -24,6 +24,11 @@ public static String getCurrentStaffEmail(){
       return   FirebaseFirestore.getInstance().collection("users");
     }
 
+    public static CollectionReference allUpdatesCollectionReference(){
+
+        return   FirebaseFirestore.getInstance().collection("updates");
+    }
+
     public static DocumentReference getChatRoomReference(String chatRoomId){
         return FirebaseFirestore.getInstance().collection("chatrooms").document(chatRoomId);
     }

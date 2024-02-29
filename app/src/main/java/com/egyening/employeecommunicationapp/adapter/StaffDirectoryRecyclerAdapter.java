@@ -19,10 +19,10 @@ import com.egyening.employeecommunicationapp.utils.AndroidUtils;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-public class SearchUserAdapter  extends FirestoreRecyclerAdapter<Staff, SearchUserAdapter.UserViewHolder> {
+public class StaffDirectoryRecyclerAdapter  extends FirestoreRecyclerAdapter<Staff, StaffDirectoryRecyclerAdapter.UserViewHolder> {
     Context context;
 
-    public SearchUserAdapter(@NonNull FirestoreRecyclerOptions<Staff> options, Context context) {
+    public StaffDirectoryRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Staff> options, Context context) {
         super(options);
         this. context =context;
     }
@@ -37,8 +37,8 @@ public class SearchUserAdapter  extends FirestoreRecyclerAdapter<Staff, SearchUs
         holder.itemView.setOnClickListener(v->{
             Intent intent =new Intent(context, ChatActivity.class);
             AndroidUtils.passUserAsIntent(intent,model);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
 
         });
 
@@ -47,15 +47,15 @@ public class SearchUserAdapter  extends FirestoreRecyclerAdapter<Staff, SearchUs
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.search_user_recycler_row,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.staff_directory_row,parent,false);
         return new UserViewHolder(view);
     }
 
     class UserViewHolder extends RecyclerView.ViewHolder{
-            TextView firstnametxt;
-            TextView lastnametxt;
-            TextView emailtxt;
-            ImageView profilePic;
+        TextView firstnametxt;
+        TextView lastnametxt;
+        TextView emailtxt;
+        ImageView profilePic;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             firstnametxt= itemView.findViewById(R.id.firstname_txt);

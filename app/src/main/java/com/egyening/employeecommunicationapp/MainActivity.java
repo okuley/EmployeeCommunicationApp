@@ -17,12 +17,16 @@ public class MainActivity extends AppCompatActivity {
     ChatFragment chatFragment;
 
     StaffDirectoryFragment staffDirectoryFragment;
+    HomeFragment homeFragment;
+    NewsAndUpdatesFragment newsAndUpdatesFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         chatFragment = new ChatFragment();
         staffDirectoryFragment =new StaffDirectoryFragment();
+        homeFragment= new HomeFragment();
+        newsAndUpdatesFragment= new NewsAndUpdatesFragment();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         searchButton =findViewById(R.id.searchbutton);
@@ -40,11 +44,17 @@ public class MainActivity extends AppCompatActivity {
                 if(item.getItemId()==R.id.staff_directory){
                     getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,staffDirectoryFragment).commit();
                 }
+                if(item.getItemId()==R.id.home){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,homeFragment).commit();
+                }
+                if(item.getItemId()==R.id.news){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,newsAndUpdatesFragment).commit();
+                }
                 return true;
             }
         });
 
-        //bottomNavigationView.setSelectedItemId(R.id.chat);
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
     }
 }

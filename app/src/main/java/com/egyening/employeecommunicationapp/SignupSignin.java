@@ -49,15 +49,7 @@ public class SignupSignin extends AppCompatActivity {
 
 
 
-    /*@Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            //User is signed in use an intent to move to another activity
-        }
-    }*/
+
 
     public void signup(String firstName,String lastName,String email,String password,String staffId){
         Map<String, Object> user = new HashMap<>();

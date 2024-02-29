@@ -2,4 +2,23 @@
     <string name="app_name">Employee Communication App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="About_company">
+        eProcess, is Ecobank group technology and shared services affiliate.
+        The IT Service Management System Supporting the Provision of the following services:
+        Telecom and Network Support Services, Email And Collaboration Services,
+        Data Center Management Services, Disaster Recovery Services, Mobile Financial
+        Services, Service Desk Services,
+        Core Banking Application Support Service Cards and Switching Services to Ecobank Affiliates.
+        Business Process is strategic asset of an organization that must be understood, managed, and improved to deliver value added products and services.
+        We are knowledge and training based company
+        offering multiple Process and Workflow solutions to organization’s operational requirements in a very cost effective manner.
+        People, Process, Technology and Data are typically associated with operational objectives and are a set
+        linked procedures which collectively realize a business objective within the context of an organizational structure defining
+        functional roles and relationships, automated and manual activities, individual activities, such as participants, associated IT applications and database, etc. Our end user process
+        expertise and strong technical knowhow ensures a smooth transition with negligible operational implications.
+        Solutions are designed based on the clients existing infrastructure and
+        business module, procedures which integrate with the existing systems. Day to day business proesses are also managed and eased by
+        various low cost utility software of our Microsoft Gold Certified Partner®
+    </string>
 </resources>
