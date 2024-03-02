@@ -1,5 +1,7 @@
 package com.egyening.employeecommunicationapp;
 
+import static com.egyening.employeecommunicationapp.utils.firebaseUtils.getCurrentUseruid;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,6 +36,8 @@ public class SignupSignin extends AppCompatActivity {
     EditText passwordtxt;
     Button signupbtn;
     ImageButton loginbtn;
+
+    Staff user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,17 +70,20 @@ public class SignupSignin extends AppCompatActivity {
         user.put("password", password);
         user.put("staffId", staffId);
         // Add a new document with a generated ID
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection("users").document(email)
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
+                    public void onSuccess(Void avoid) {
 
                         mAuth.createUserWithEmailAndPassword(email, password);
+                       // db.collection("user").document(staffId).update("staffId",getCurrentUseruid());
                         Intent intent =new Intent(SignupSignin.this, MainActivity.class);
                         startActivity(intent);
 
-                        Log.d("SignupSignin", "DocumentSnapshot added with ID: " + documentReference.getId());
+
+                       // Log.d("SignupSignin", "DocumentSnapshot added with ID: " + documentReference.getId());
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -84,6 +91,8 @@ public class SignupSignin extends AppCompatActivity {
                         Log.w("SignupSignin", "Error adding document", e);
                     }
                 });
+
+
     }
 
 
@@ -95,8 +104,22 @@ public class SignupSignin extends AppCompatActivity {
         String lastName=lastnametxt.getText().toString();
         String email=emailtxt.getText().toString();
         String password=passwordtxt.getText().toString();
-        String staffId=UUID.randomUUID().toString().replace("-", "");
+      if(firstName.isEmpty()){
+          firstnametxt.setError("Please enter firstname");
+          return;
+      } else if (lastName.isEmpty()) {
+          lastnametxt.setError("Please enter lastname");
+          return;
+      } else if (email.isEmpty()) {
+          emailtxt.setError("Please enter email address");
+          return;
+      } else if (password.isEmpty()||password.length()<6) {
+         passwordtxt.setError("Please enter password of atleast six characters");
+         return;
+      }
 
+        String staffId=UUID.randomUUID().toString().replace("-", "");
+        //String staffId=getCurrentUseruid();
         signup(firstName, lastName,email,password,staffId);
     }
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -43,6 +44,8 @@ ChatRecyclerAdapter adapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         someUser= AndroidUtils.getStaffFromIntent(getIntent());
+        //Intent intent= new Intent(ChatActivity.this,ChatRoom.class);
+       // AndroidUtils.passUserAsIntent(intent,someUser);
         chatRoomId= firebaseUtils.chatRoomId(firebaseUtils.getCurrentStaffEmail(),someUser.getEmail());
 
         messageInput=findViewById(R.id.chat_input);
@@ -56,7 +59,7 @@ ChatRecyclerAdapter adapter;
 
         });
 
-        someUserName.setText(someUser.getLastName());
+        someUserName.setText(someUser.getFirstName());
         getOrCreateChatRoom();
         setUpChatRecylerView();
         sendbutton.setOnClickListener(v->{
@@ -78,6 +81,7 @@ ChatRecyclerAdapter adapter;
               ChatRoom chatRoom1  = new ChatRoom(
                       chatRoomId,
                       Arrays.asList(firebaseUtils.getCurrentStaffEmail(),someUser.getEmail()),
+                     /// Arrays.asList(firebaseUtils.getCurrentUseruid(),someUser.getStaffId()),
                       Timestamp.now(),
                       ""
               );
@@ -126,5 +130,6 @@ ChatRecyclerAdapter adapter;
             }
         });
     }
+
 
 }

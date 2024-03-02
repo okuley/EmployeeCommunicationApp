@@ -55,8 +55,9 @@ SearchUserAdapter adapter;
     public void setSearchRecyclerView( String searchInputData){
 
         Query query= firebaseUtils.allUserCollectionReference()
-                .whereGreaterThanOrEqualTo("email",searchInputData);
-               // .whereGreaterThanOrEqualTo("Lastname",searchInputData);
+                .whereGreaterThanOrEqualTo("email",searchInputData)
+                .whereLessThanOrEqualTo("email",searchInputData+'\uf8ff');
+
 
         FirestoreRecyclerOptions<Staff> options=new FirestoreRecyclerOptions.Builder<Staff>()
                 .setQuery(query, Staff.class).build();

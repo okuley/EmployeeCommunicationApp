@@ -42,9 +42,10 @@ public class RecentChatRecyclerAdapter  extends FirestoreRecyclerAdapter<ChatRoo
                 .get().addOnCompleteListener(task -> {
                    if(task.isSuccessful()){
                        otherUser =task.getResult().toObject(Staff.class);
-
+                       //otherUser= AndroidUtils.getStaffFromIntent();
                        if (otherUser != null) {
                            holder.firstnametxt.setText(otherUser.getFirstName());
+
                        }
 
                        holder.lastmessage_txt.setText(model.getLastMessage());
@@ -54,7 +55,7 @@ public class RecentChatRecyclerAdapter  extends FirestoreRecyclerAdapter<ChatRoo
                            Intent intent =new Intent(context, ChatActivity.class);
                            if (otherUser != null) {
                                AndroidUtils.passUserAsIntent(intent, otherUser);
-                               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                context.startActivity(intent);
                            }
 

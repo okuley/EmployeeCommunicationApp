@@ -2,6 +2,7 @@ package com.egyening.employeecommunicationapp.utils;
 
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -12,12 +13,31 @@ import java.util.Objects;
 
 public class firebaseUtils {
 
+
 public static String getCurrentStaffEmail(){
     return  Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
 }
 
+    public static String getCurrentUseruid(){
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        assert currentUser != null;
+        return currentUser.getUid();
+
+}
+
+    public static String getCurrentUserStaffId(){
+
+        return  FirebaseFirestore.getInstance().collection("users").getId();
+    }
+
+
     public static DocumentReference CurrentStaffDetails(){
-        return FirebaseFirestore.getInstance().collection("users").document(getCurrentStaffEmail());
+        return FirebaseFirestore.getInstance().collection("users").document(getCurrentUseruid());
+    }
+    public static DocumentReference getUserDetails(String userEmail){
+        return FirebaseFirestore.getInstance().collection("users").document(userEmail);
     }
     public static CollectionReference allUserCollectionReference(){
 
@@ -56,7 +76,9 @@ public static String getCurrentStaffEmail(){
     }
     }
 
+
     public static  String timestampToString(Timestamp timestamp){
     return new SimpleDateFormat("HH:MM").format(timestamp.toDate());
+       // return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(timestamp.toDate());
     }
 }
